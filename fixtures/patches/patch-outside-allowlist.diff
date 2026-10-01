@@ -1,0 +1,5 @@
+--- a/config/runtime.json
++++ b/config/runtime.json
+@@ -1 +1 @@
+-{"public_web_count": 1}
++{"public_web_count": 2}

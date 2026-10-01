@@ -1,0 +1,10 @@
+--- a/src/storage.js
++++ b/src/storage.js
+@@ -1,5 +1,4 @@
+-const fs = require('node:fs/promises');
+-async function readImage(key) {
+-  return fs.readFile('uploads/' + key);
++async function readImage(key, storage) {
++  return storage.get(key);
+ }
+ module.exports = { readImage };
