@@ -1,0 +1,4 @@
+diff --git a/config/runtime.json b/config/renamed.json
+similarity index 100%
+rename from config/runtime.json
+rename to config/renamed.json

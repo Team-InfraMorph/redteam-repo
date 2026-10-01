@@ -9,32 +9,32 @@ ROOT = Path(__file__).resolve().parents[1]
 SENTINEL = "REDTEAM_DUMMY_SENTINEL_ONLY\n"
 
 
-def manifest():
-    return json.loads((ROOT / "fixtures/manifest.json").read_text())
+def manifest(root=ROOT):
+    return json.loads((root / "fixtures/manifest.json").read_text())
 
 
-def corpus_path(relative):
-    path = (ROOT / relative).resolve()
-    if not path.is_relative_to((ROOT / "fixtures").resolve()):
+def corpus_path(relative, root=ROOT):
+    path = (root / relative).resolve()
+    if not path.is_relative_to((root / "fixtures").resolve()):
         raise ValueError("Corpus asset must stay under fixtures/")
     return path
 
 
 @contextmanager
-def workspace():
+def workspace(root=ROOT):
     """Yield (snapshot, outside_sentinel); do not alter real host files."""
     with tempfile.TemporaryDirectory(prefix="inframorph-redteam-") as temporary:
-        root = Path(temporary).resolve()
-        snapshot = root / "snapshot"
-        shutil.copytree(corpus_path(manifest()["baseline"]), snapshot)
-        outside = root / "outside"
+        temporary_root = Path(temporary).resolve()
+        snapshot = temporary_root / "snapshot"
+        shutil.copytree(corpus_path(manifest(root)["baseline"], root), snapshot, symlinks=True)
+        outside = temporary_root / "outside"
         outside.mkdir()
         sentinel = outside / "sentinel.txt"
         sentinel.write_text(SENTINEL)
         yield snapshot, sentinel
 
 
-def apply_overlay(snapshot, case):
+def apply_overlay(snapshot, case, root=ROOT):
     """Copy text only. A production Agent must handle it as untrusted input."""
     if not case.get("overlay"):
         return
@@ -42,7 +42,7 @@ def apply_overlay(snapshot, case):
     if not target.is_relative_to(snapshot.resolve()):
         raise ValueError("Overlay target must stay inside snapshot")
     target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(corpus_path(case["overlay"]), target)
+    shutil.copyfile(corpus_path(case["overlay"], root), target)
 
 
 def path_request(snapshot, sentinel, case):
