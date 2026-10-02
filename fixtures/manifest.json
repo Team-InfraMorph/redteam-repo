@@ -408,6 +408,204 @@
       "javascript_syntax": "valid",
       "verification_owner": "E: Patch gate (8)",
       "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/9"
+    },
+    {
+      "id": "intent-db-provider",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-db-provider"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-db-provider.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-db-evidence",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-db-evidence"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-db-evidence.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-db-omitted",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-db-omitted"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-db-omitted.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-config-secret",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-config-secret"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-config-secret.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-config-execution",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-config-execution"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-config-execution.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-config-unsupported",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-config-unsupported"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-config-unsupported.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-config-control",
+      "category": "intent",
+      "expected": {
+        "decision": "allow",
+        "reason": "intent-config-control"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-config-control.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-worker-missing",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-worker-missing"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-worker-missing.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-worker-evidence",
+      "category": "intent",
+      "expected": {
+        "decision": "reject",
+        "reason": "intent-worker-evidence"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-worker-evidence.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "intent-worker-control",
+      "category": "intent",
+      "expected": {
+        "decision": "allow",
+        "reason": "intent-worker-control"
+      },
+      "issue": "https://github.com/Team-InfraMorph/inframorph/issues/6",
+      "integration_status": "not-run",
+      "intent": "fixtures/intents/intent-worker-control.json",
+      "verification_owner": "E: Intent gate (5)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/6"
+    },
+    {
+      "id": "patch-prisma-field-delete",
+      "category": "patch",
+      "expected": {
+        "decision": "reject",
+        "reason": "patch-prisma-field-delete"
+      },
+      "issue": 4,
+      "integration_status": "not-run",
+      "patch": "fixtures/patches/patch-prisma-field-delete.diff",
+      "changed_files": [
+        "prisma/schema.prisma"
+      ],
+      "javascript_syntax": "valid",
+      "verification_owner": "E: Patch gate (8)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/9"
+    },
+    {
+      "id": "patch-prisma-default-change",
+      "category": "patch",
+      "expected": {
+        "decision": "reject",
+        "reason": "patch-prisma-default-change"
+      },
+      "issue": 4,
+      "integration_status": "not-run",
+      "patch": "fixtures/patches/patch-prisma-default-change.diff",
+      "changed_files": [
+        "prisma/schema.prisma"
+      ],
+      "javascript_syntax": "valid",
+      "verification_owner": "E: Patch gate (8)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/9"
+    },
+    {
+      "id": "patch-storage-behavior",
+      "category": "patch",
+      "expected": {
+        "decision": "reject",
+        "reason": "patch-storage-behavior"
+      },
+      "issue": 4,
+      "integration_status": "not-run",
+      "patch": "fixtures/patches/patch-storage-behavior.diff",
+      "changed_files": [
+        "src/storage.js"
+      ],
+      "javascript_syntax": "valid",
+      "verification_owner": "E: Patch gate (8)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/9"
+    },
+    {
+      "id": "patch-comment-control",
+      "category": "patch",
+      "expected": {
+        "decision": "allow",
+        "reason": "patch-comment-control"
+      },
+      "issue": 4,
+      "integration_status": "not-run",
+      "patch": "fixtures/patches/patch-comment-control.diff",
+      "changed_files": [
+        "src/storage.js"
+      ],
+      "javascript_syntax": "valid",
+      "verification_owner": "E: Patch gate (8)",
+      "production_link": "https://github.com/Team-InfraMorph/inframorph/issues/9"
     }
   ]
 }

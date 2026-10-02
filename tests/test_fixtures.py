@@ -25,7 +25,7 @@ class CorpusTests(unittest.TestCase):
         return root
 
     def test_full_corpus(self):
-        self.assertEqual(check_all(), 25)
+        self.assertEqual(check_all(), 39)
 
     def test_every_expected_decision_flip_is_rejected(self):
         for original in manifest()['cases']:

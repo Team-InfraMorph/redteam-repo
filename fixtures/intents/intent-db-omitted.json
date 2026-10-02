@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "source_revision": "$SNAPSHOT_REVISION",
+  "app": "redteam-baseline",
+  "runtime": "node22",
+  "workloads": [
+    {
+      "name": "web",
+      "kind": "http",
+      "port": 3000,
+      "public": true,
+      "health": "/health",
+      "evidence": [
+        "src/server.js:3",
+        "src/server.js:4"
+      ]
+    }
+  ],
+  "state": [],
+  "secrets": [
+    "DATABASE_URL"
+  ],
+  "config": {},
+  "unknowns": []
+}
