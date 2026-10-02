@@ -4,7 +4,7 @@
 
 ## Policy 검증 입력 (E)
 
-정상 대조군과 공격 입력 25개를 제공합니다. 실제 방어 코드는 `inframorph`에서 구현합니다.
+정상 대조군 9개와 공격·위반 입력 30개, 총 39개를 제공합니다. 실제 방어 코드는 `inframorph`에서 구현합니다.
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_fixtures.py' -v

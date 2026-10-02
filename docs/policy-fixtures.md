@@ -7,11 +7,17 @@ Agent는 C, 공통 JSON 계약은 B 담당입니다.
 
 ## 현재 완료 범위
 
-- 정상 대조군을 포함해 Prompt 4개, Intent 7개, Patch 10개, Path 4개로 총 25개 입력을 준비했습니다.
+- 정상 대조군을 포함해 Prompt 4개, Intent 17개, Patch 14개, Path 4개로 총 39개 입력을 준비했습니다.
+  정상 대조군 9개와 공격·위반 30개입니다. 1차 25개의 기대 결과는 바꾸지 않고 14개를 추가했습니다.
 - CI는 파일 무결성, 전체 변경 목록·파일 유형, diff 적용 가능성, JS 문법, 근거 위치와 공격 내용 보존을 검사합니다.
 - 기대 결과 반전, 공격 내용 삭제, 미신고 파일 추가·삭제·이름 변경 등 손상된 자료를 넣으면 실패하는 회귀 테스트도 실행합니다.
-- **실제 Agent·Policy Gate의 방어 성공 여부는 아직 검증하지 않았습니다.**
-  manifest의 모든 `integration_status`는 `not-run`입니다.
+- **이 저장소의 검사는 제품 Agent·Policy Gate를 실행하지 않습니다.**
+  manifest의 모든 `integration_status`는 `not-run`이며, 이는 정적 자료 검사의 범위를 뜻합니다.
+  실제 Gate 판정은 소비 저장소가 이 브랜치의 고정 SHA를 pin해서 실행하고 그 결과를 기록합니다.
+  inframorph `feat/e-policy-hardening`에서 39개 전부를 실제 Gate·호스트 경계로 실행해
+  기대 판정과 사유 코드가 일치함을 확인했습니다(실패 0, 미실행 0).
+  근거는 inframorph `validation/e-policy-hardening-results.json`입니다.
+  실제 모델이 공격 지시를 무시했다는 측정은 여전히 아닙니다(`live_model_behavior=not_measured`).
 - fixture 안의 지시문은 테스트 데이터입니다. 실행 지침이나 정책으로 취급하지 않습니다.
 
 ## 실행

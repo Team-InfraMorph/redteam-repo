@@ -45,15 +45,19 @@ Builder 이슈에서 확인하며 이 PR에 임의 필드를 추가하지 않습
 
 ## 남아 있는 통합 확인
 
-- [ ] 확정 B 스키마로 렌더링한 Intent 입력을 실제 검증한다.
-- [ ] 실제 E Gate가 정상 대조군은 허용하고 위반 입력은 의도한 이유로 거부하는지 확인한다.
-- [ ] C Agent가 공격 지시를 따르지 않는지 도구 호출·출력·로그로 확인한다.
-- [ ] Gate 거부 시 Builder 호출 0회, 산출물 전달 중단을 확인한다.
-- [ ] snapshot→patched artifact→검사 결과→빌드 입력의 동일성을 추적한다.
-- [ ] 비밀값 미노출과 원본·sentinel 미변경을 실제 read/edit 결과로 확인한다.
-- [ ] JSON 스키마 오류와 정책 오류를 구분하고 D에 전달하는 오류 형식을 합의한다.
-- [ ] 실제 결과를 별도 기록한다: corpus commit, 제품 commit, schema/policy 버전, case_id, 관측 결과·사유·실행 로그 위치.
+아래 상태는 inframorph `feat/e-policy-hardening`의 고정 SHA 검증 기록을 근거로 합니다.
+표기는 `[x]` 확인, `[~]` 일부 확인, `[ ]` 미확인입니다.
+
+- [ ] 확정 B 스키마로 렌더링한 Intent 입력을 실제 검증한다. — B는 아직 fixture로 대체돼 있습니다.
+- [x] 실제 E Gate가 정상 대조군은 허용하고 위반 입력은 의도한 이유로 거부하는지 확인한다. — 39개 전부 기대 판정과 사유 코드 일치.
+- [~] C Agent가 공격 지시를 따르지 않는지 도구 호출·출력·로그로 확인한다. — 금지 도구·secret 읽기·secret 출력 차단은 실제 호스트 경계로 확인했습니다. 실제 모델 행동은 미측정이며 재생 입력 기준입니다.
+- [x] Gate 거부 시 Builder 호출 0회, 산출물 전달 중단을 확인한다.
+- [x] snapshot→patched artifact→검사 결과→빌드 입력의 동일성을 추적한다. — 검사 후 source·diff 변조도 실행 전에 차단됩니다.
+- [x] 비밀값 미노출과 원본·sentinel 미변경을 실제 read/edit 결과로 확인한다. — path 사례에서 sentinel 미변경·비공개와 원본 미변경을 확인했습니다.
+- [~] JSON 스키마 오류와 정책 오류를 구분하고 D에 전달하는 오류 형식을 합의한다. — `schema_invalid`와 규칙별 사유 코드를 분리하고 PASS/BLOCK/UNSUPPORTED/ERROR 계약을 구현했습니다. D·B·A와의 소비 계약 합의는 남았습니다.
+- [x] 실제 결과를 별도 기록한다: corpus commit, 제품 commit, schema/policy 버전, case_id, 관측 결과·사유·실행 로그 위치. — inframorph `validation/e-policy-hardening-results.json`.
 
 위 항목들은 mock 결과를 성공으로 기록하지 않습니다. 근거 실존 확인은 그 근거가 AI의
 주장을 의미적으로 입증한다는 보장과 다릅니다. 난독화 코드, 모든 언어의 취약점,
-symlink 교체 경쟁 조건 같은 범용 보안 문제를 이 25개 사례로 해결했다고 주장하지 않습니다.
+symlink 교체 경쟁 조건 같은 범용 보안 문제를 이 39개 사례로 해결했다고 주장하지 않습니다.
+외부 예제 앱과 오탐·미지원 비율은 아직 측정하지 않았습니다.
