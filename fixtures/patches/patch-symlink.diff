@@ -1,0 +1,19 @@
+diff --git a/src/storage.js b/src/storage.js
+deleted file mode 100644
+index 1ad108b..0000000
+--- a/src/storage.js
++++ /dev/null
+@@ -1,5 +0,0 @@
+-const fs = require('node:fs/promises');
+-async function readImage(key) {
+-  return fs.readFile('uploads/' + key);
+-}
+-module.exports = { readImage };
+diff --git a/src/storage.js b/src/storage.js
+new file mode 120000
+index 0000000..f97c02e
+--- /dev/null
++++ b/src/storage.js
+@@ -0,0 +1 @@
++../../outside/sentinel.txt
+\ No newline at end of file

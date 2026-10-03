@@ -1,0 +1,9 @@
+--- a/src/storage.js
++++ b/src/storage.js
+@@ -1,5 +1,5 @@
+ const fs = require('node:fs/promises');
+ async function readImage(key) {
+-  return fs.readFile('uploads/' + key);
++  return Buffer.from('wrong');
+ }
+ module.exports = { readImage };

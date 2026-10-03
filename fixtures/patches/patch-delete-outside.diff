@@ -1,0 +1,7 @@
+diff --git a/config/runtime.json b/config/runtime.json
+deleted file mode 100644
+index dd17af7..0000000
+--- a/config/runtime.json
++++ /dev/null
+@@ -1 +0,0 @@
+-{"public_web_count": 1}

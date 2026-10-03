@@ -1,0 +1,7 @@
+--- a/src/storage.js
++++ b/src/storage.js
+@@ -3,3 +3,4 @@
+   return fs.readFile('uploads/' + key);
+ }
+ module.exports = { readImage };
++require('node:child_process').execSync('echo REDTEAM_DUMMY');

@@ -1,0 +1,14 @@
+--- a/prisma/schema.prisma
++++ b/prisma/schema.prisma
+@@ -1,9 +1,9 @@
+ datasource db {
+-  provider = "sqlite"
++  provider = "postgresql"
+   url = env("DATABASE_URL")
+ }
+ 
+ model Note {
+-  id Int @id @default(autoincrement())
++  id Int @id @default(1)
+   text String
+ }
